@@ -46,14 +46,6 @@ public class ClassNode extends CallGraphNode implements java.lang.Comparable {
 	}
 
 	public String toString() {
-		// StringBuilder sb = new StringBuilder();
-		// sb.append("Class:").append(getClassname()).append("\n");
-		// for (CallGraphNode c : getChild()) {
-		// sb.append("\t").append(c.toString());
-		// sb.append("\n");
-		// }
-		// return sb.toString();
-
 		StringBuilder sb = new StringBuilder();
 		sb.append(getClassname());
 		return sb.toString();

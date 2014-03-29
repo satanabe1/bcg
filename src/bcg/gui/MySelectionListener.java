@@ -26,6 +26,11 @@ import att.grappa.GrappaPoint;
 import att.grappa.Parser;
 import att.grappa.Subgraph;
 
+/**
+ * ツリーペインのイベントを処理するクラス
+ * 
+ * @author s.watanabe
+ */
 public class MySelectionListener implements TreeSelectionListener {
 
 	private JFrame frame;
@@ -33,14 +38,27 @@ public class MySelectionListener implements TreeSelectionListener {
 	private int dept;
 	private ITextOutputter texter;
 
+	/**
+	 * 直近のイベント
+	 */
 	private TreeSelectionEvent recentevent = null;
 
+	/**
+	 * フレームと、グラフの描画エリアを引数としてインスタンスを生成する
+	 * 
+	 * @param frame
+	 *            ツリー選択時にフレームのタイトルを書き換える。ただそれだけの為に渡す引数
+	 * @param graphpane
+	 */
 	public MySelectionListener(JFrame frame, JScrollPane graphpane) {
 		this.frame = frame;
 		this.graphpane = graphpane;
 		texter = new DottyOutputter();
 	}
 
+	/**
+	 * ツリーの要素が選択された場合に、描画エリアにグラフを描画する
+	 */
 	@Override
 	public void valueChanged(TreeSelectionEvent e) {
 		recentevent = e;
@@ -56,12 +74,20 @@ public class MySelectionListener implements TreeSelectionListener {
 		}
 	}
 
+	/**
+	 * 直近のイベントで valueChangedメソッドを呼び出す
+	 */
 	public void redoEvent() {
 		if (recentevent != null) {
 			valueChanged(recentevent);
 		}
 	}
 
+	/**
+	 * メソッド呼び出しの階層。。。
+	 * 
+	 * @param dept
+	 */
 	public void setDept(int dept) {
 		this.dept = dept;
 	}

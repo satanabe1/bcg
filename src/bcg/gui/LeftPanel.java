@@ -17,6 +17,11 @@ import bcg.mdl.CallGraphNode;
 import bcg.mdl.ClassNode;
 import bcg.mdl.MethodNode;
 
+/**
+ * 解析済みクラス＆メソッド一覧を表示するペイン
+ * 
+ * @author s.watanabe
+ */
 public class LeftPanel extends JPanel {
 
 	private DefaultMutableTreeNode root;
@@ -32,18 +37,11 @@ public class LeftPanel extends JPanel {
 		init();
 	}
 
-	// public LeftPanel(LayoutManager layout) {
-	// super(layout);
-	// }
-	//
-	// public LeftPanel(boolean isDoubleBuffered) {
-	// super(isDoubleBuffered);
-	// }
-	//
-	// public LeftPanel(LayoutManager layout, boolean isDoubleBuffered) {
-	// super(layout, isDoubleBuffered);
-	// }
-
+	/**
+	 * これでセットされたクラス一覧が、ツリーペインに表示される
+	 * 
+	 * @param classes
+	 */
 	public void setClasses(Set<ClassNode> classes) {
 		this.classes = classes;
 		reloadTreePane();
@@ -62,6 +60,9 @@ public class LeftPanel extends JPanel {
 		add(treepane, BorderLayout.CENTER);
 	}
 
+	/**
+	 * ツリーを生成する
+	 */
 	private void reloadTreePane() {
 		root = new DefaultMutableTreeNode();
 		root.setUserObject("Classes :      ");
@@ -92,6 +93,12 @@ public class LeftPanel extends JPanel {
 
 	}
 
+	/**
+	 * プリミティブ型やjavaパッケージ関係を除外する
+	 * 
+	 * @param classname
+	 * @return
+	 */
 	private boolean excludes(String classname) {
 		if (classname.startsWith("java/")) {
 			return true;
@@ -122,6 +129,7 @@ public class LeftPanel extends JPanel {
 	}
 
 	/**
+	 * コンボボックスの変更イベントを処理する
 	 * 
 	 * @author s.watanabe
 	 */

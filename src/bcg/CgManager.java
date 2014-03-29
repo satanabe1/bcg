@@ -102,9 +102,11 @@ public class CgManager {
 	}
 
 	/**
-	 * 解析対象とするクラスファイル、またはjarファイルを解析器に登録する
+	 * 解析対象とするクラスファイル、またはjarファイルを解析器に登録する<br>
+	 * loadした後、parseしないと意味が無い
 	 * 
 	 * @param file
+	 *            jarファイルかクラスファイル
 	 * @throws IOException
 	 */
 	public void load(File file) throws IOException {
@@ -121,9 +123,15 @@ public class CgManager {
 		} else {
 			throw new IOException();
 		}
-
 	}
 
+	/**
+	 * jarファイルの中からクラスファイルの一覧を取得する
+	 * 
+	 * @param file
+	 * @return
+	 * @throws IOException
+	 */
 	private List<File> getJarEntries(File file) throws IOException {
 		List<File> entries = new ArrayList<File>();
 		@SuppressWarnings("resource")
@@ -136,84 +144,4 @@ public class CgManager {
 		}
 		return entries;
 	}
-
-	// public void oldload(File classfile) {
-	// // org.apache.bcel.util.Class2HTML.main();
-	// // org.apache.bcel.util.JavaWrapper
-	// System.out.println();
-	// System.out.println(classfile.getAbsolutePath());
-	//
-	// try {
-	// org.apache.bcel.classfile.ClassParser cp = new ClassParser(
-	// classfile.getAbsolutePath());
-	// JavaClass klass = cp.parse();
-	// System.out.println(klass.getClassName());
-	//
-	// for (Method method : klass.getMethods()) {
-	// System.out.println("--- " + method.getName() + " ---");
-	// if (!method.getName().equals("getMethodName")) {
-	// // continue;
-	// }
-	//
-	// Code code = method.getCode();
-	// if (code == null) {
-	// continue;
-	// }
-	//
-	// byte[] codes = code.getCode();
-	// for (int index = 0; index < codes.length; index++) {
-	// short opcode = (short) (codes[index] < 0 ? ((short) codes[index]) + 0x100
-	// : (short) codes[index]);
-	// int oplen = Constants.NO_OF_OPERANDS[opcode];
-	//
-	// if (!Targets.contains(opcode)) {
-	// index += oplen;
-	// continue;
-	//
-	// }
-	// short d = 2;
-	// short ent = (short) (codes[index + d] < 0 ? ((short) codes[index
-	// + d]) + 0x100
-	// : (short) codes[index + d]);
-	// ConstantPool pool = klass.getConstantPool();
-	// ConstantCP methodref = (ConstantCP) pool.getConstant(ent);
-	//
-	// ConstantClass classref = (ConstantClass) pool
-	// .getConstant(methodref.getClassIndex());
-	// ConstantNameAndType nametype = (ConstantNameAndType) pool
-	// .getConstant(methodref.getNameAndTypeIndex());
-	//
-	// ConstantUtf8 utfClassname = (ConstantUtf8) pool
-	// .getConstant(classref.getNameIndex());
-	// String classname = new String(utfClassname.getBytes());
-	//
-	// ConstantUtf8 utfMethodname = (ConstantUtf8) pool
-	// .getConstant(nametype.getNameIndex());
-	// String methodname = new String(utfMethodname.getBytes());
-	//
-	// ConstantUtf8 utfMethoddec = (ConstantUtf8) pool
-	// .getConstant(nametype.getSignatureIndex());
-	// String methoddec = new String(utfMethoddec.getBytes());
-	//
-	// // System.err.println(methoddec);
-	//
-	// System.out.println(" " + index + "\t: "
-	// + Constants.OPCODE_NAMES[opcode] + " #" + ent + " "
-	// // + constant.getClassIndex()
-	// + classname
-	// //
-	// + "."
-	// //
-	// // + constant.getNameAndTypeIndex());
-	// + methodname + " <" + methoddec + ">");
-	// // System.out.println(Constants.INVOKEVIRTUAL);
-	//
-	// index += oplen;
-	// }
-	// }
-	//
-	// } catch (Exception ex) {
-	// ex.printStackTrace();
-	// }
-	// }
 }

@@ -22,11 +22,28 @@ import javax.swing.filechooser.FileFilter;
 import bcg.CgManager;
 import bcg.mdl.ClassNode;
 
+/**
+ * 解析結果をGUI表示するフレーム
+ * 
+ * @author s.watanabe
+ */
 public class CgFrame extends JFrame {
 
+	/**
+	 * 左側のツリーペイン
+	 */
 	private LeftPanel treepanel;
+	/**
+	 * 右側の図形エリア
+	 */
 	private JScrollPane graphpane;
+	/**
+	 * ツリーペインのイベントを処理するリスナ
+	 */
 	private MySelectionListener selectionListener;
+	/**
+	 * 解析器
+	 */
 	private CgManager generator;
 
 	public CgFrame() throws HeadlessException {
@@ -58,6 +75,12 @@ public class CgFrame extends JFrame {
 		treepanel.setClasses(classes);
 	}
 
+	/**
+	 * jarまたはクラスファイルの解析を行う<br>
+	 * 結果はツリーペインに表示される
+	 * 
+	 * @param jar
+	 */
 	public void openJar(File jar) {
 		try {
 			generator.load(jar);
@@ -92,6 +115,9 @@ public class CgFrame extends JFrame {
 		initMenubar();
 	}
 
+	/**
+	 * メニューバーの初期化
+	 */
 	private void initMenubar() {
 		JMenuBar menubar = new JMenuBar();
 		JMenu filemenu = new JMenu("File");
@@ -106,12 +132,13 @@ public class CgFrame extends JFrame {
 				fileChooser.setFileFilter(new FileFilter() {
 					@Override
 					public String getDescription() {
-						return "*.jar";
+						return "*.jar|*class";
 					}
 
 					@Override
 					public boolean accept(File f) {
-						return f.getName().endsWith(".jar");
+						return f.getName().endsWith(".jar")
+								|| f.getName().endsWith(".class");
 					}
 				});
 				fileChooser.showOpenDialog(me);
@@ -124,6 +151,11 @@ public class CgFrame extends JFrame {
 		setJMenuBar(menubar);
 	}
 
+	/**
+	 * フレームのサイズ変更に合わせてツリーペインと描画エリアの大きさを調整するクラス
+	 * 
+	 * @author s.watanabe
+	 */
 	private class Resizer extends NullComponentListener {
 
 		private Component base, left, right;

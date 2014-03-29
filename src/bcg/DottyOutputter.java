@@ -11,32 +11,20 @@ import bcg.mdl.CallGraphNode;
 import bcg.mdl.ClassNode;
 import bcg.mdl.MethodNode;
 
+/**
+ * 解析結果をdot言語にするクラス
+ * 
+ * @author s.watanabe
+ */
 public class DottyOutputter implements ITextOutputter {
 
 	public DottyOutputter() {
-	}
-
-	public String oldtext(MethodNode root) {
-		StringBuilder s = new StringBuilder();
-		s.append(root.getMethodName()).append("\n");
-		for (CallGraphNode child : root.getOut()) {
-			if (!(child instanceof MethodNode)) {
-				continue;
-			}
-			MethodNode mc = (MethodNode) child;
-			s.append("\t");
-			s.append(mc.getParent().getNodename()).append("#")
-					.append(mc.getNodename()).append(mc.getDesc());
-			s.append("\n");
-		}
-		return s.toString();
 	}
 
 	@Override
 	public String text(MethodNode root, int dept) {
 		StringBuilder s = new StringBuilder();
 		s.append("digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];");
-		// s.append("digraph callgraph {graph [compound = true, splines=polyline];");
 		s.append("\n");
 
 		List<MethodNode> checked = new ArrayList<>();

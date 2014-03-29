@@ -5,6 +5,12 @@ import java.io.IOException;
 
 import bcg.gui.CgFrame;
 
+/**
+ * 実行クラス<br>
+ * 引数にjarファイルかクラスファイルを指定できる
+ * 
+ * @author s.watanabe
+ */
 public class Main {
 
 	/**
@@ -14,18 +20,7 @@ public class Main {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) {
-		// CgManager generator = new CgManager();
-		// for (String str : args) {
-		// try {
-		// generator.load(new File(str));
-		// } catch (Exception ex) {
-		// ex.printStackTrace();
-		// }
-		// }
-
-		// Map<String, ClassNode> classes = generator.parse();
 		CgFrame gui = new CgFrame();
-		// gui.setClasses(classes);
 		gui.setVisible(true);
 
 		for (String str : args) {

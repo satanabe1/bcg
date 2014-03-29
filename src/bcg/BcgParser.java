@@ -21,16 +21,33 @@ import org.apache.bcel.classfile.Method;
 import bcg.mdl.ClassNode;
 import bcg.mdl.MethodNode;
 
+/**
+ * クラスの解析器
+ * 
+ * @author s.watanabe
+ */
 public class BcgParser {
 
+	/**
+	 * ロード済みクラス
+	 */
 	private List<JavaClass> loaded;
 
+	/**
+	 * コンストラクタ<br>
+	 * ロード済みクラスを初期化する
+	 */
 	public BcgParser() {
 		loaded = new ArrayList<JavaClass>();
 	}
 
+	/**
+	 * クラスファイルをロードする
+	 * 
+	 * @param classfile
+	 */
 	public void load(File classfile) {
-		// System.out.println("Loading:" + classfile.getAbsolutePath());
+		System.out.println("Loading:" + classfile.getAbsolutePath());
 		try {
 			JavaClass klass = new ClassParser(classfile.getPath()).parse();
 			loadConstants(klass);
@@ -39,8 +56,14 @@ public class BcgParser {
 		}
 	}
 
+	/**
+	 * jarファイルからクラスファイルをロードする
+	 * 
+	 * @param jarfile
+	 * @param classfile
+	 */
 	public void load(String jarfile, String classfile) {
-		// System.out.println("Loading:" + jarfile + "(" + classfile + ")");
+		System.out.println("Loading:" + jarfile + "(" + classfile + ")");
 		try {
 			JavaClass klass = new ClassParser(jarfile, classfile).parse();
 			loadConstants(klass);
@@ -49,20 +72,33 @@ public class BcgParser {
 		}
 	}
 
+	/**
+	 * ロードしたクラスを解析する
+	 */
 	public void parse() {
 		Collections.sort(loaded);
 		for (JavaClass classfile : loaded) {
-			// System.out.println("Parsing:" + classfile.getClassName());
+			System.out.println("Parsing:" + classfile.getClassName());
 			for (Method method : classfile.getMethods()) {
 				parseMethodCode(classfile, method);
 			}
 		}
 	}
 
+	/**
+	 * 解析結果のメソッド一覧を取得する
+	 * 
+	 * @return
+	 */
 	public Map<String, MethodNode> getMethodNodes() {
 		return MethodNode.getNodes();
 	}
 
+	/**
+	 * 解析結果のクラス一覧を取得する
+	 * 
+	 * @return
+	 */
 	public Map<String, ClassNode> getClassNodes() {
 		return ClassNode.getNodes();
 	}
@@ -107,7 +143,6 @@ public class BcgParser {
 			short ent = (short) (bytecode[counter + d] < 0 ? ((short) bytecode[counter
 					+ d]) + 0x100
 					: (short) bytecode[counter + d]);
-			// short ent = (short)
 			ConstantPool pool = method.getConstantPool();
 
 			if (!(pool.getConstant(ent) instanceof ConstantCP)) {
@@ -128,19 +163,18 @@ public class BcgParser {
 				invokeTarget.addIn(methodnode);
 			}
 
-			// System.out.println("INVOKE " + invokeTarget);
-
 			counter += oplen;
 		}
-
-		// for (MethodNode invoke : invokes) {
-		// System.out.println(invoke);
-		// }
 
 		return methodnode;
 	}
 }
 
+/**
+ * 解析の対象とするオペコード
+ * 
+ * @author s.watanabe
+ */
 class Targets {
 	private static final short[] opcodes = new short[] {
 			Constants.INVOKEVIRTUAL, Constants.INVOKESPECIAL,
