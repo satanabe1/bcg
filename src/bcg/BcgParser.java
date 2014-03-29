@@ -96,9 +96,12 @@ public class BcgParser {
 			int oplen = Constants.NO_OF_OPERANDS[opcode];
 
 			if (!Targets.contains(opcode)) {
-				counter += oplen;
+				if (oplen > 0) {
+					counter += oplen;
+				} else {
+					counter++;
+				}
 				continue;
-
 			}
 			short d = 2;
 			short ent = (short) (bytecode[counter + d] < 0 ? ((short) bytecode[counter
@@ -106,8 +109,18 @@ public class BcgParser {
 					: (short) bytecode[counter + d]);
 			// short ent = (short)
 			ConstantPool pool = method.getConstantPool();
+
+			if (!(pool.getConstant(ent) instanceof ConstantCP)) {
+				counter += oplen;
+				continue;
+			}
+
 			ConstantCP methodref = (ConstantCP) pool.getConstant(ent);
 
+			if (methodref == null) {
+				counter += oplen;
+				continue;
+			}
 			MethodNode invokeTarget = MethodNode.genInstance(pool, methodref);
 			if (!invokes.contains(invokeTarget)) {
 				invokes.add(invokeTarget);

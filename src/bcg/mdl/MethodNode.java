@@ -35,6 +35,7 @@ public class MethodNode extends CallGraphNode {
 
 	public static MethodNode genInstance(ConstantPool pool,
 			ConstantCP invocation) {
+
 		ClassNode declclass = ClassNode.genInstance(pool,
 				(ConstantClass) pool.getConstant(invocation.getClassIndex()));
 		ConstantNameAndType nameAndType = (ConstantNameAndType) pool
