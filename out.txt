@@ -1,0 +1,486 @@
+//===== D =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_D"
+{
+label = "D"
+}
+}
+//===== java/io/FileOutputStream =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/io/FileOutputStream"
+{
+label = "java/io/FileOutputStream"
+	"<init>(Ljava/io/File;)V"
+}
+}
+//===== java/util/List =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/util/List"
+{
+label = "java/util/List"
+	"add(Ljava/lang/Object;)Z"
+	"addAll(Ljava/util/Collection;)Z"
+	"size()I"
+	"toArray([Ljava/lang/Object;)[Ljava/lang/Object;"
+	"iterator()Ljava/util/Iterator;"
+}
+}
+//===== java/util/Date =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/util/Date"
+{
+label = "java/util/Date"
+	"toString()Ljava/lang/String;"
+}
+}
+//===== com/sun/javadoc/RootDoc =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_com/sun/javadoc/RootDoc"
+{
+label = "com/sun/javadoc/RootDoc"
+	"specifiedPackages()[Lcom/sun/javadoc/PackageDoc;"
+	"classes()[Lcom/sun/javadoc/ClassDoc;"
+}
+}
+//===== jdoc2tex/interpreter/DocClassOverviewConverter =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/interpreter/DocClassOverviewConverter"
+{
+label = "jdoc2tex/interpreter/DocClassOverviewConverter"
+	"escape(Ljava/lang/String;)Ljava/lang/String;"
+	"par(Ljava/lang/String;)Ljava/lang/String;"
+	"<init>()V"
+	"interpretConverter(Lcom/sun/javadoc/ClassDoc;)Ljava/lang/String;"
+}
+}
+//===== java/lang/Object =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/lang/Object"
+{
+label = "java/lang/Object"
+	"<init>()V"
+}
+}
+//===== com/sun/javadoc/Parameter =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_com/sun/javadoc/Parameter"
+{
+label = "com/sun/javadoc/Parameter"
+	"type()Lcom/sun/javadoc/Type;"
+}
+}
+//===== jdoc2tex/TexOut =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/TexOut"
+{
+label = "jdoc2tex/TexOut"
+	"tex(Lcom/sun/javadoc/RootDoc;)Ljava/lang/String;"
+	"tex(Lcom/sun/javadoc/PackageDoc;)Ljava/lang/String;"
+	"tex(Lcom/sun/javadoc/ClassDoc;)Ljava/lang/String;"
+	"<init>()V"
+	"addTexpackage(Ljava/lang/String;)V"
+}
+}
+//===== java/lang/StringBuilder =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/lang/StringBuilder"
+{
+label = "java/lang/StringBuilder"
+	"<init>()V"
+	"append(Ljava/lang/Object;)Ljava/lang/StringBuilder;"
+	"append(Ljava/lang/String;)Ljava/lang/StringBuilder;"
+	"toString()Ljava/lang/String;"
+	"length()I"
+	"deleteCharAt(I)Ljava/lang/StringBuilder;"
+	"<init>(Ljava/lang/String;)V"
+	"append(I)Ljava/lang/StringBuilder;"
+	"append(D)Ljava/lang/StringBuilder;"
+}
+}
+//===== java/util/ArrayList =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/util/ArrayList"
+{
+label = "java/util/ArrayList"
+	"<init>()V"
+}
+}
+//===== java/util/Iterator =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/util/Iterator"
+{
+label = "java/util/Iterator"
+	"hasNext()Z"
+	"next()Ljava/lang/Object;"
+}
+}
+//===== jdoc2tex/interpreter/DocConstructerSummaryConvertor =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/interpreter/DocConstructerSummaryConvertor"
+{
+label = "jdoc2tex/interpreter/DocConstructerSummaryConvertor"
+	"<init>()V"
+	"getConstructorName(Lcom/sun/javadoc/ConstructorDoc;)Ljava/lang/String;"
+	"par(Ljava/lang/String;)Ljava/lang/String;"
+	"escape(Ljava/lang/String;)Ljava/lang/String;"
+	"interpretConverter(Lcom/sun/javadoc/ClassDoc;)Ljava/lang/String;"
+}
+}
+//===== jdoc2tex/LongTable =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/LongTable"
+{
+label = "jdoc2tex/LongTable"
+	"<init>()V"
+	"addTexpackage(Ljava/lang/String;)V"
+	"tex(Lcom/sun/javadoc/ClassDoc;)Ljava/lang/String;"
+}
+}
+//===== jdoc2tex/interpreter/DocSuperClassSummaryConverter =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/interpreter/DocSuperClassSummaryConverter"
+{
+label = "jdoc2tex/interpreter/DocSuperClassSummaryConverter"
+	"<init>()V"
+	"pushSuperClass(Ljava/util/Stack;Lcom/sun/javadoc/ClassDoc;)Ljava/util/Stack;"
+	"genarateSuperClassList(Ljava/util/Stack;)Ljava/lang/String;"
+	"escape(Ljava/lang/String;)Ljava/lang/String;"
+	"interpretConverter(Lcom/sun/javadoc/ClassDoc;)Ljava/lang/String;"
+}
+}
+//===== java/lang/Enum =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/lang/Enum"
+{
+label = "java/lang/Enum"
+	"valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;"
+	"<init>(Ljava/lang/String;I)V"
+}
+}
+//===== com/sun/javadoc/PackageDoc =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_com/sun/javadoc/PackageDoc"
+{
+label = "com/sun/javadoc/PackageDoc"
+	"name()Ljava/lang/String;"
+	"allClasses()[Lcom/sun/javadoc/ClassDoc;"
+}
+}
+//===== java/io/IOException =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/io/IOException"
+{
+label = "java/io/IOException"
+}
+}
+//===== java/io/PrintWriter =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/io/PrintWriter"
+{
+label = "java/io/PrintWriter"
+	"<init>(Ljava/io/OutputStream;)V"
+	"<init>(Ljava/io/File;)V"
+}
+}
+//===== com/sun/tools/javadoc/Main =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_com/sun/tools/javadoc/Main"
+{
+label = "com/sun/tools/javadoc/Main"
+	"execute(Ljava/lang/String;Ljava/io/PrintWriter;Ljava/io/PrintWriter;Ljava/io/PrintWriter;Ljava/lang/String;[Ljava/lang/String;)I"
+}
+}
+//===== com/sun/javadoc/FieldDoc =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_com/sun/javadoc/FieldDoc"
+{
+label = "com/sun/javadoc/FieldDoc"
+	"name()Ljava/lang/String;"
+	"isStatic()Z"
+	"type()Lcom/sun/javadoc/Type;"
+	"commentText()Ljava/lang/String;"
+}
+}
+//===== java/util/Arrays =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/util/Arrays"
+{
+label = "java/util/Arrays"
+	"asList([Ljava/lang/Object;)Ljava/util/List;"
+	"sort([Ljava/lang/Object;Ljava/util/Comparator;)V"
+}
+}
+//===== com/sun/javadoc/ClassDoc =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_com/sun/javadoc/ClassDoc"
+{
+label = "com/sun/javadoc/ClassDoc"
+	"qualifiedName()Ljava/lang/String;"
+	"containingPackage()Lcom/sun/javadoc/PackageDoc;"
+	"name()Ljava/lang/String;"
+	"commentText()Ljava/lang/String;"
+	"constructors()[Lcom/sun/javadoc/ConstructorDoc;"
+	"fields(Z)[Lcom/sun/javadoc/FieldDoc;"
+	"interfaces()[Lcom/sun/javadoc/ClassDoc;"
+	"methods()[Lcom/sun/javadoc/MethodDoc;"
+	"superclass()Lcom/sun/javadoc/ClassDoc;"
+}
+}
+//===== jdoc2tex/interpreter/IDocConverter =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/interpreter/IDocConverter"
+{
+label = "jdoc2tex/interpreter/IDocConverter"
+	"interpretConverter(Lcom/sun/javadoc/ClassDoc;)Ljava/lang/String;"
+}
+}
+//===== jdoc2tex/layout/TexFontSize =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/layout/TexFontSize"
+{
+label = "jdoc2tex/layout/TexFontSize"
+	"clone()Ljava/lang/Object;"
+	"<init>(Ljava/lang/String;ILjava/lang/String;)V"
+	"values()[Ljdoc2tex/layout/TexFontSize;"
+	"valueOf(Ljava/lang/String;)Ljdoc2tex/layout/TexFontSize;"
+	"toString()Ljava/lang/String;"
+	"<clinit>()V"
+}
+}
+//===== jdoc2tex/layout/DocTableManager =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/layout/DocTableManager"
+{
+label = "jdoc2tex/layout/DocTableManager"
+	"<init>([D)V"
+	"addRow(Ljdoc2tex/layout/TexFontSize;[Ljava/lang/String;)Z"
+	"empty([Ljava/lang/String;)Z"
+	"paddingLeft(Ljava/lang/String;)Ljava/lang/String;"
+	"begin()Ljava/lang/String;"
+	"genrow([Ljava/lang/String;)Ljava/lang/String;"
+	"enableTopMargin()V"
+	"addRow([Ljava/lang/String;)Z"
+	"generateTable()Ljava/lang/String;"
+}
+}
+//===== java/io/File =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/io/File"
+{
+label = "java/io/File"
+	"createTempFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;"
+	"<init>(Ljava/lang/String;)V"
+	"<init>(Ljava/io/File;Ljava/lang/String;)V"
+	"mkdirs()Z"
+}
+}
+//===== com/sun/javadoc/ConstructorDoc =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_com/sun/javadoc/ConstructorDoc"
+{
+label = "com/sun/javadoc/ConstructorDoc"
+	"commentText()Ljava/lang/String;"
+	"parameters()[Lcom/sun/javadoc/Parameter;"
+	"name()Ljava/lang/String;"
+}
+}
+//===== java/io/FileNotFoundException =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/io/FileNotFoundException"
+{
+label = "java/io/FileNotFoundException"
+}
+}
+//===== jdoc2tex/interpreter/AbstractDocConverter =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/interpreter/AbstractDocConverter"
+{
+label = "jdoc2tex/interpreter/AbstractDocConverter"
+	"<init>()V"
+	"replaceAll(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"
+	"escape(Ljava/lang/String;)Ljava/lang/String;"
+	"vspace()Ljava/lang/String;"
+	"par(Ljava/lang/String;)Ljava/lang/String;"
+}
+}
+//===== jdoc2tex/interpreter/DocFieldSummaryConverter =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/interpreter/DocFieldSummaryConverter"
+{
+label = "jdoc2tex/interpreter/DocFieldSummaryConverter"
+	"<init>()V"
+	"par(Ljava/lang/String;)Ljava/lang/String;"
+	"escape(Ljava/lang/String;)Ljava/lang/String;"
+	"interpretConverter(Lcom/sun/javadoc/ClassDoc;)Ljava/lang/String;"
+}
+}
+//===== jdoc2tex/Jdoc2Tex =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/Jdoc2Tex"
+{
+label = "jdoc2tex/Jdoc2Tex"
+	"write(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V"
+	"main([Ljava/lang/String;)V"
+	"<init>()V"
+	"start(Lcom/sun/javadoc/RootDoc;)Z"
+}
+}
+//===== com/sun/javadoc/MethodDoc =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_com/sun/javadoc/MethodDoc"
+{
+label = "com/sun/javadoc/MethodDoc"
+	"isStatic()Z"
+	"name()Ljava/lang/String;"
+	"parameters()[Lcom/sun/javadoc/Parameter;"
+	"commentText()Ljava/lang/String;"
+	"signature()Ljava/lang/String;"
+}
+}
+//===== java/io/PrintStream =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/io/PrintStream"
+{
+label = "java/io/PrintStream"
+	"println(Ljava/lang/String;)V"
+}
+}
+//===== jdoc2tex/interpreter/DocMethodSummaryConverter =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/interpreter/DocMethodSummaryConverter"
+{
+label = "jdoc2tex/interpreter/DocMethodSummaryConverter"
+	"getMethodName(Lcom/sun/javadoc/MethodDoc;)Ljava/lang/String;"
+	"getCommentSuperClass(Lcom/sun/javadoc/ClassDoc;Lcom/sun/javadoc/MethodDoc;)Ljava/lang/String;"
+	"par(Ljava/lang/String;)Ljava/lang/String;"
+	"escape(Ljava/lang/String;)Ljava/lang/String;"
+	"getAnothorClasssMethodDoc(Lcom/sun/javadoc/ClassDoc;Lcom/sun/javadoc/MethodDoc;)Lcom/sun/javadoc/MethodDoc;"
+	"<init>()V"
+	"interpretConverter(Lcom/sun/javadoc/ClassDoc;)Ljava/lang/String;"
+}
+}
+//===== java/lang/Exception =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/lang/Exception"
+{
+label = "java/lang/Exception"
+	"printStackTrace()V"
+}
+}
+//===== com/sun/javadoc/Type =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_com/sun/javadoc/Type"
+{
+label = "com/sun/javadoc/Type"
+	"simpleTypeName()Ljava/lang/String;"
+	"typeName()Ljava/lang/String;"
+	"asClassDoc()Lcom/sun/javadoc/ClassDoc;"
+	"isPrimitive()Z"
+}
+}
+//===== java/util/Calendar =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/util/Calendar"
+{
+label = "java/util/Calendar"
+	"getInstance()Ljava/util/Calendar;"
+	"getTime()Ljava/util/Date;"
+}
+}
+//===== java/util/Stack =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/util/Stack"
+{
+label = "java/util/Stack"
+	"<init>()V"
+	"push(Ljava/lang/Object;)Ljava/lang/Object;"
+	"size()I"
+	"pop()Ljava/lang/Object;"
+	"empty()Z"
+}
+}
+//===== java/io/OutputStreamWriter =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/io/OutputStreamWriter"
+{
+label = "java/io/OutputStreamWriter"
+	"<init>(Ljava/io/OutputStream;Ljava/lang/String;)V"
+}
+}
+//===== java/lang/String =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/lang/String"
+{
+label = "java/lang/String"
+	"equals(Ljava/lang/Object;)Z"
+	"valueOf(Ljava/lang/Object;)Ljava/lang/String;"
+	"compareTo(Ljava/lang/String;)I"
+	"toString()Ljava/lang/String;"
+	"replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"
+	"length()I"
+}
+}
+//===== java/lang/Class =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/lang/Class"
+{
+label = "java/lang/Class"
+	"getCanonicalName()Ljava/lang/String;"
+}
+}
+//===== java/util/Comparator =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/util/Comparator"
+{
+label = "java/util/Comparator"
+}
+}
+//===== java/io/BufferedWriter =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/io/BufferedWriter"
+{
+label = "java/io/BufferedWriter"
+	"<init>(Ljava/io/Writer;)V"
+	"write(Ljava/lang/String;)V"
+	"close()V"
+}
+}
+//===== java/lang/System =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_java/lang/System"
+{
+label = "java/lang/System"
+}
+}
+//===== jdoc2tex/TexOut$1 =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/TexOut$1"
+{
+label = "jdoc2tex/TexOut$1"
+	"compare(Lcom/sun/javadoc/PackageDoc;Lcom/sun/javadoc/PackageDoc;)I"
+	"<init>(Ljdoc2tex/TexOut;)V"
+	"compare(Ljava/lang/Object;Ljava/lang/Object;)I"
+}
+}
+//===== jdoc2tex/interpreter/DocImplementedInterfacesConverter =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/interpreter/DocImplementedInterfacesConverter"
+{
+label = "jdoc2tex/interpreter/DocImplementedInterfacesConverter"
+	"<init>()V"
+	"getInterfaces(Lcom/sun/javadoc/ClassDoc;)Ljava/lang/String;"
+	"escape(Ljava/lang/String;)Ljava/lang/String;"
+	"interpretConverter(Lcom/sun/javadoc/ClassDoc;)Ljava/lang/String;"
+}
+}
+//===== jdoc2tex/layout/ITableManager =====
+digraph callgraph {graph [compound = true, rankdir = LR, splines=polyline];
+subgraph "cluster_jdoc2tex/layout/ITableManager"
+{
+label = "jdoc2tex/layout/ITableManager"
+	"addRow([Ljava/lang/String;)Z"
+	"addRow(Ljdoc2tex/layout/TexFontSize;[Ljava/lang/String;)Z"
+	"enableTopMargin()V"
+	"generateTable()Ljava/lang/String;"
+}
+}
