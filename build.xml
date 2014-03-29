@@ -52,6 +52,7 @@
 			<fileset dir="${src.dir}" defaultexcludes="yes">
 				<exclude name="sample/**/*.java" />
 			</fileset>
+            <classpath refid="lib.path" />
 		</javadoc>
 	</target>
 
