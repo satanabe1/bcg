@@ -1,25 +1,19 @@
 package bcg.gui;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import att.grappa.GrappaPanel;
 import bcg.mdl.ClassNode;
 
-public class MyFrame extends JFrame {
+public class CgFrame extends JFrame {
 
 	private LeftPanel treepanel;
 	private JScrollPane graphpane;
@@ -29,21 +23,21 @@ public class MyFrame extends JFrame {
 	// frame.setVisible(true);
 	// }
 
-	public MyFrame() throws HeadlessException {
+	public CgFrame() throws HeadlessException {
 		init();
 	}
 
-	public MyFrame(GraphicsConfiguration gc) {
+	public CgFrame(GraphicsConfiguration gc) {
 		super(gc);
 		init();
 	}
 
-	public MyFrame(String title) throws HeadlessException {
+	public CgFrame(String title) throws HeadlessException {
 		super(title);
 		init();
 	}
 
-	public MyFrame(String title, GraphicsConfiguration gc) {
+	public CgFrame(String title, GraphicsConfiguration gc) {
 		super(title, gc);
 		init();
 	}
@@ -59,7 +53,7 @@ public class MyFrame extends JFrame {
 	}
 
 	private void init() {
-		int width = 1200;
+		int width = 1300;
 		int height = 800;
 		MySelectionListener selectionListener;
 
@@ -83,7 +77,7 @@ public class MyFrame extends JFrame {
 	private class Resizer extends NullComponentListener {
 
 		private Component base, left, right;
-		private double scalew = 0.35;
+		private double scalew = 0.25;
 		private double scaleh = 0.96;
 
 		private Resizer(Component base, Component left, Component right) {

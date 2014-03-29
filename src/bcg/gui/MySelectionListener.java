@@ -7,13 +7,10 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreeNode;
 
 import bcg.DottyOutputter;
 import bcg.ITextOutputter;
@@ -36,6 +33,8 @@ public class MySelectionListener implements TreeSelectionListener {
 	private int dept;
 	private ITextOutputter texter;
 
+	private TreeSelectionEvent recentevent = null;
+
 	public MySelectionListener(JFrame frame, JScrollPane graphpane) {
 		this.frame = frame;
 		this.graphpane = graphpane;
@@ -44,6 +43,7 @@ public class MySelectionListener implements TreeSelectionListener {
 
 	@Override
 	public void valueChanged(TreeSelectionEvent e) {
+		recentevent = e;
 		Object obj = e.getPath().getLastPathComponent();
 		if (!(obj instanceof DefaultMutableTreeNode)) {
 			return;
@@ -53,6 +53,12 @@ public class MySelectionListener implements TreeSelectionListener {
 		if (userobj instanceof CallGraphNode) {
 			frame.setTitle(((CallGraphNode) userobj).getNodename());
 			update((CallGraphNode) userobj);
+		}
+	}
+
+	public void redoEvent() {
+		if (recentevent != null) {
+			valueChanged(recentevent);
 		}
 	}
 
@@ -86,6 +92,8 @@ public class MySelectionListener implements TreeSelectionListener {
 
 	private InputStream execdot(String dotcommand, String inputtext)
 			throws Exception {
+		System.out.println(inputtext);
+
 		CommandExecutor executor = new CommandExecutor(dotcommand);
 		executor.exec(inputtext);
 		executor.getOutputStream().close();

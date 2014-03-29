@@ -2,24 +2,16 @@ package bcg.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.LayoutManager;
-import java.awt.event.ComponentEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.Collections;
 import java.util.Set;
 
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
-import javax.swing.JViewport;
-import javax.swing.event.TreeSelectionEvent;
-import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreeModel;
 
 import bcg.mdl.CallGraphNode;
 import bcg.mdl.ClassNode;
@@ -97,7 +89,7 @@ public class LeftPanel extends JPanel {
 
 		treepane.getViewport().setView(tree);
 		tree.addTreeSelectionListener(selectionListener);
-		
+
 	}
 
 	private boolean excludes(String classname) {
@@ -143,6 +135,7 @@ public class LeftPanel extends JPanel {
 		@Override
 		public void itemStateChanged(ItemEvent e) {
 			listener.setDept((Integer) e.getItem());
+			listener.redoEvent();
 		}
 	}
 }

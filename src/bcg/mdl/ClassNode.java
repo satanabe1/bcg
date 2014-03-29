@@ -8,6 +8,7 @@ import org.apache.bcel.classfile.ConstantPool;
 import org.apache.bcel.classfile.ConstantUtf8;
 import org.apache.bcel.classfile.JavaClass;
 
+@SuppressWarnings("rawtypes")
 public class ClassNode extends CallGraphNode implements java.lang.Comparable {
 
 	private static Map<String, ClassNode> nodes = new HashMap<String, ClassNode>();

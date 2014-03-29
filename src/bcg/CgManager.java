@@ -8,8 +8,6 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -65,6 +63,7 @@ public class CgManager {
 		return parser.getClassNodes();
 	}
 
+	@SuppressWarnings("unused")
 	private String c2text(Map<String, ClassNode> nodes) {
 		StringBuilder s = new StringBuilder();
 		ITextOutputter outputter = new DottyOutputter();
@@ -87,6 +86,7 @@ public class CgManager {
 		return s.toString();
 	}
 
+	@SuppressWarnings("unused")
 	private String m2text(Map<String, MethodNode> nodes) {
 		ITextOutputter outputter = new DottyOutputter();
 		Iterator<String> iter = nodes.keySet().iterator();

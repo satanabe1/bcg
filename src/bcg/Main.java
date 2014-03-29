@@ -1,10 +1,9 @@
 package bcg;
 
 import java.io.File;
-import java.util.Collections;
 import java.util.Map;
 
-import bcg.gui.MyFrame;
+import bcg.gui.CgFrame;
 import bcg.mdl.ClassNode;
 
 public class Main {
@@ -29,7 +28,7 @@ public class Main {
 		}
 
 		Map<String, ClassNode> classes = generator.parse();
-		MyFrame gui = new MyFrame();
+		CgFrame gui = new CgFrame();
 		gui.setClasses(classes);
 		gui.setVisible(true);
 
