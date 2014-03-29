@@ -2,6 +2,12 @@ bcg
 ===
 コールグラフを、swingを使って図にして表示するなにか
 
+準備するもの
+--
+bcel (v6推奨)  
+Graphviz (dot、twopiコマンドが使える事)  
+Grappa
+
 コンパイル
 --
 build.xmlのあるディレクトリでantコマンドを実行して下さい。
