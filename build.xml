@@ -55,6 +55,15 @@
 		</javadoc>
 	</target>
 
+    <target name="run">
+        <java
+            fork="true"
+            classname="bcg.Main"
+            classpath="${jar.dir}/${jar.name}">
+            <classpath refid="lib.path" />
+        </java>
+    </target>
+
 	<target name="copysrc">
 		<copy todir="classes">
 			<fileset dir="${src.dir}">
